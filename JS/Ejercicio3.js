@@ -107,8 +107,6 @@ let SaldoActual = comprador.Saldo;
 let Costo_Compra = Precio * Cantidad;
 console.log(`El cliente ha agregado a su carrito de compras ${Cantidad} unidades, con un costo total de: ${Costo_Compra}`);
 
-
-
 if (Costo_Compra <= SaldoActual) {
     console.log("El cliente tiene saldo suficiente");
 } else {
@@ -153,7 +151,6 @@ console.log("La estructura y valores del objeto PEDIDO son previos a la modifica
 console.table(Pedido);
 delete Pedido.TipoPago;
 console.table(Pedido);
-
 
 // Congelar objeto para evitar modificaciones
 console.log("%c7.- Metodos para controlar la mutabilidad de los objetos, congelación (FREEZE)", "color: blue;");
@@ -226,3 +223,50 @@ let datosClientePromociones = {
 
 // El nuevo objeto que creamos sería un ejemplo de la información que deberíamos enviar al área de marketing para la difusión de nuevo producto
 console.table(datosClientePromociones);
+
+// Operaciones sobre objetos
+// Unión de objetos
+console.log("%c10.- Unión de Objetos usando el método de asignación (ASSIGN)", "color: blue;");
+console.log("Imprimimos la estructura y valores del objeto PRODUCTO");
+console.table(Producto);
+
+// Suponemos que el usuario ya realizó el pago del pedido; se convertirá en una venta que requiere información de ambos objetos
+const venta = Object.assign({}, Producto, Pedido); // Aseguramos que la nueva variable no afecte a Producto
+console.log("Consultamos este nuevo objeto VENTA");
+console.table(venta);
+
+// Unión de objetos usando SPREAD OPERATOR para evitar la pérdida de información con objetos que concatenen el mismo nombre en sus propiedades
+console.log("%c11.- Unión de Objetos usando SPREAD OPERATOR (...)", "color: blue;");
+console.table(producto);
+console.table(comprador);
+console.table(Pedido);
+
+const venta2 = {
+    producto: { ...producto },
+    comprador: { ...comprador },
+    pedido: { ...Pedido } // Cambiado de 'pedido' a 'Pedido' para que coincida con la variable
+};
+
+console.log("Fusionamos los 3 objetos en uno nuevo, sin pérdida de información");
+console.log(venta2);
+console.table(venta2);
+
+console.log("%c12.- Mutabilidad POST Unión de Objetos", "color: blue;");
+
+// Vamos a verificar el STATUS de MUTABILIDAD de los objetos
+console.log("Vamos a verificar la MUTABILIDAD DEL OBJETO PEDIDO");
+console.log(`¿Está el objeto de Pedido Congelado?: ${Object.isFrozen(Pedido)}`);
+console.log(`¿Está el objeto de Pedido Sellado?: ${Object.isSealed(Pedido)}`);
+
+console.log("Vamos a verificar la mutabilidad del objeto COMPRADOR");
+console.log(`¿Está el objeto de Comprador Congelado?: ${Object.isFrozen(comprador)}`);
+console.log(`¿Está el objeto de Comprador Sellado?: ${Object.isSealed(comprador)}`);
+
+console.log("Vamos a verificar la mutabilidad del objeto PRODUCTO");
+console.log(`¿Está el objeto de Producto Congelado?: ${Object.isFrozen(producto)}`);
+console.log(`¿Está el objeto de Producto Sellado?: ${Object.isSealed(producto)}`);
+
+// Modificamos la estructura del producto, agregando una nueva propiedad
+producto[`isLegacy`] = false;
+console.log(producto);
+console.log(venta2);
