@@ -15,7 +15,9 @@ Previo a Iniciar el Desarrollo de Softaware para web usando el freamework de Nod
 |4.|Practica 04 : Tipos de datos en JS|10|✔️Finalizada|
 |5.|Practica 05 : Repaso de objetos en JS|19|✔️Finalizada|
 |6.|Practica 06 : Repaso de arreglos en JS|18|✔️Finalizada|
-|6.|Practica 07 : Repaso de Ciclo y Sentencias de Control en JS|18|✔️Iniciada|
+|7.|Practica 07 : Repaso de Ciclo y Sentencias de Control en JS|16|✔️Finalizada|
+
+
 ### Autor
 Creado por : **Antonio Ocpaco Dolores** /[@Antonio Ocpaco Dolores](https://github.com/ANTONIO-OCPACO-DOLORES)
 
