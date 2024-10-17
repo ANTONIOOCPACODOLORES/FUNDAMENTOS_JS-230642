@@ -106,3 +106,50 @@ let SaldoActual = comprador.Saldo;
 
 let Costo_Compra = Precio * Cantidad;
 console.log(`El cliente ha agregado a su carrito de compras ${Cantidad} unidades, con un costo total de: ${Costo_Compra}`);
+
+
+
+if (Costo_Compra <= SaldoActual) {
+    console.log("El cliente tiene saldo suficiente");
+} else {
+    console.log("El cliente no tiene saldo suficiente");
+}
+
+// Actualizar el precio del producto
+console.log("%c4.- Actualización de los valores de las propiedades de un objeto", "color: blue;");
+console.log(`El objeto actualmente tiene los siguientes valores:`);
+console.log(JSON.stringify(Producto2, null, 2));
+console.log(`Por cuestiones de infracción, el costo del producto ha cambiado de $6,829.00 a $6,915.00.`);
+Producto2.Precio = 6915.00;
+console.log("Los nuevos valores del producto son:");
+console.log(Producto2);
+
+// Cambiar el tipo de dato de la disponibilidad
+console.log("----------------------------------------------------");
+console.log("El objeto tiene actualmente los siguientes valores:");
+let tipoDisponibilidad = typeof(Producto2.Disponibilidad);
+console.log(`El tipo de dato de la disponibilidad es: ${tipoDisponibilidad}`);
+console.log(JSON.stringify(Producto2, null, 2));
+Producto2.Disponibilidad = "sí"; // Cambiando a string
+let nuevoTipoDisponibilidad = typeof(Producto2.Disponibilidad);
+console.log(Producto2);
+console.log(`El nuevo tipo de dato de la disponibilidad es: ${nuevoTipoDisponibilidad}`);
+
+// Agregar nuevas propiedades al objeto comprador
+console.log("%c5.- Agregar nuevas propiedades al objeto", "color: blue;");
+
+console.log("Los datos actuales del comprador son:");
+console.log(comprador);
+comprador['Direccion'] = "Av. Benito Juárez NO. 1525, Interior 4D, Xicotepec de Júarez, Puebla, México";
+comprador['Tipo'] = "Nuevo Cliente";
+comprador['ActividadReciente'] = true;
+comprador['TotalCompras'] = 3516.25;
+console.log("Después de haber agregado las propiedades Dirección, Tipo, ActividadReciente y TotalCompras:");
+console.table(comprador);
+
+// Eliminar propiedades existentes de un objeto
+console.log("%c6.- Eliminar propiedades existentes de un objeto", "color: blue;");
+console.log("La estructura y valores del objeto PEDIDO son previos a la modificación:");
+console.table(Pedido);
+delete Pedido.TipoPago;
+console.table(Pedido);
