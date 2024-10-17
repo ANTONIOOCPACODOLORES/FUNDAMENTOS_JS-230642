@@ -43,3 +43,104 @@ console.log(`Tu nuevo saldo es ${saldo_cuenta}`);
 // El cliente raliza un monto un abono de 1500
 monto_transaccion=1500;
 console.log(`Tu abono de : ${monto_transaccion} ha sido receibido, tu nuevo saldo es de :  ${saldo_cuenta+monto_transaccion}`)
+
+
+
+// 5. TIPO DE DATO BIGINT (un numero de mayor amplitud)
+
+const num1=1234567890;
+const num2=12345678901234567890;
+let num3=12345678901234567890134567890;
+let num4=1234567890123456789012345678901234567890;
+// el numero que pone punto decimales una e+numero
+console.warn("--- Tipo de dato - BIGINT (numero de mayor amplitud)")
+
+console.log(`El primer experimento de un numero  grande es: ${num1}, que si es soportado por NUMBER y su tipo de dato es: ${typeof(num1)}`)
+console.log(`El segundo experimento de un numero  grande es: ${num2}, que si es soportado por NUMBER y su tipo de dato es: ${typeof(num2)}`)
+console.log(`El tercer experimento de un numero  grande es: ${num3}, que si es soportado por NUMBER pero perdiendo precision y su tipo de dato es: ${typeof(numBig3)}`)
+console.log(`El cuarto experimento de un numero  grande es: ${num4}, que si es soportado por NUMBER pero perdiendo precision y su tipo de dato es: ${typeof(numBig4)}`)
+
+num3=BigInt(12345678901234567890134567890);
+num4=BigInt(1234567890123456789012345678901234567890);
+
+
+console.log(`El quinto experimento de un numero  grande es: ${num3}, que si no es soportado por NUMBER perdiendo presicion y su tipo de dato es: ${typeof(num3)}`)
+console.log(`El sexto experimento de un numero  grande es: ${num4}, que si no es soportado por NUMBER perdiendo precision  y su tipo de dato es: ${typeof(num4)}`)
+
+
+// TIPO DE DATO SYMBOL
+console.warn("--- Tipod de Dato SYMBOL (Simbolo)")
+const nu1 =5;
+const nu2 =5.0;
+const nu3 ="5";
+const nu4 ="5.0";
+const nu5= Symbol(5)
+const nu6= Symbol(5)
+const nu7= Symbol(5.0)
+const nu8= Symbol("5")
+const nu9= Symbol("5.0")
+
+// pruebaas comparativas
+console.log("¿Es 5 = 5.0?")
+
+if(nu1==nu2){
+    console.log("Se comporaro nu1 con nu2 determinando que tienen el mismo tipo de dato")
+
+} else{
+    console.log("Se comporaro nu1 con nu2 determinando que no tienen el mismo tipo de dato")
+
+}
+console.log("¿Es 5 = \"5\"?")
+
+if(nu1==nu3){
+    console.log("Se comporaro nu1 con nu3 determinando que tienen el mismo tipo de dato")
+
+} else{
+    console.log("Se comporaro nu1 con nu3 determinando que no tienen el mismo tipo de dato")
+
+}
+console.log("¿Es 5 = \"5\"? usando === para comparar extrictamente el valor y el tipo de datos" )
+
+if(nu1===nu3){
+    console.log("Se comporaro nu1 con nu3 determinando que tienen el mismo tipo de dato")
+
+} else{
+    console.log("Se comporaro nu1 con nu3 determinando que no tienen el mismo tipo de dato")
+
+}
+console.log("¿Es 5 = \"5.0\"?")
+
+if(nu1==nu4){
+    console.log("Se comporaro nu1 con nu4 determinando que tienen el mismo tipo de dato")
+
+} else{
+    console.log("Se comporaro nu1 con nu4 determinando que no tienen el mismo tipo de dato")
+
+}
+console.log("¿Es 5 = \"5.0\"usando === para comparar extrictamente ?")
+
+if(nu1===nu4){
+    console.log("Se comporaro nu1 con nu4 determinando que tienen el mismo tipo de dato")
+
+} else{
+    console.log("Se comporaro nu1 con nu4 determinando que no tienen el mismo tipo de dato")
+
+}
+console.log(`¿Es 5 === Symbol (5)?, antes de comparar anali<REMOS QUE TIPO DE DATOS SON: SIENDO NUMERO1 DE TIPO ${typeof(nu1)} y Numero 5 es de tipo ${typeof(nu5)} `)
+
+if(nu1==nu5){
+    console.log("Se comporaro nu1 con nu5 determinando que tienen el mismo tipo de dato")
+
+} else{
+    console.log("Se comporaro nu1 con nu5 determinando que no tienen el mismo tipo de dato")
+
+}
+console.log("¿Es 5 = Symbol(5) usando === para ser mas extricto al comparar?")
+
+if(nu1===nu5){
+    console.log("Se comporaro nu1 con nu3 determinando que tienen el mismo tipo de dato")
+
+} else{
+    console.log("Se comporaro nu1 con nu5 determinando que no tienen el mismo tipo de dato")
+
+}
